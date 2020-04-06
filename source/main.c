@@ -1,7 +1,7 @@
 /*	Author: agonz250
  *  Partner(s) Name: 
- *	Lab Section:
- *	Assignment: Lab #  Exercise #
+ *	Lab Section: 028 
+ *	Assignment: Lab #2  Exercise #
  *	Exercise Description: [optional - include for your own benefit]
  *
  *	I acknowledge all content contained herein, excluding template or example
@@ -12,12 +12,14 @@
 #include "simAVRHeader.h"
 #endif
 
-int main(void) {
-    /* Insert DDR and PORT initializations */
+int main(void){
+	DDRB = 0xFF; // Configure port B's 8 pins as outputs
 
-    /* Insert your solution below */
-    while (1) {
+	PORTB = 0x00; // Initialize PORTB output to 0s
 
-    }
-    return 1;
+	while(1){
+		PORTB = 0x0F; // Writes port B's 8 pins with 00001111
+	}
+	return 1;
 }
+
