@@ -18,22 +18,26 @@ int main(void) {
 	DDRB = 0xFF; PORTB = 0x00; // Configure port B's 8 pins as outputs, initialize to 0s
 	unsigned char tmpB = 0x00; // Temporary variable to hold the value of B
 	unsigned char tmpA = 0x00; // Temporary variable to hold the value of A
+
 	while(1) {
 		// 1) Read input
-		tmpA = PINA & 0x01; 				
+		tmpA = PINA & 0x03; 	//Selects PA1 and PA0				
 		// 2) Perform computation
-		// if PA0 is 1, set PB1PB0 = 01, else = 10
+		// if 
 		
-		if (tmpA == 0x01) { // True if PA0 is 1
-			tmpB = (tmpB & 0xFC) | 0x01; // Sets tmpB to bbbbbb01
-						     // (clear rightmost 2 bits, then set to 01)	
-
-		} else {
-			tmpB = (tmpB & 0xFC) | 0x02;	//sets tmp to bbbbbb10
-							//clears rightmost 2 bits, then set to 10
+		if (tmpA == 0x01) { //If PA1 = 0, and PA0 = 1, (ONLY CASE WHERE PB0 = 1)
+			tmpB = (tmpB & 0xFE) | 0x01;	//sets tmp to bbbbbbb0
+							//clears rightmost 1 bit, then set to 1
+		} else {	
+			//if (tmpA == 0x00) { 
+			//// True if PA1 and PA0 are 0
+			//iff PA1 = 1 and PA0 = 0
+			//if PA1 = 1 and PA0 = 1 
+			tmpB = (tmpB & 0xFE) | 0x00; // Sets tmpB to bbbbbbb0
+						     // (clear rightmost bit, then set to 0)	
 		}
 		// 3 write output
 		PORTB = tmpB;
 	}
 	return 0;
-}			//
+}			
