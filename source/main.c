@@ -10,7 +10,7 @@
 
 #include <avr/io.h>
 #ifdef _SIMULATE_
-#include simAVRHeader.h
+#include "simAVRHeader.h"
 #endif	
 
 int main(void) {
@@ -29,11 +29,11 @@ int main(void) {
 						     // (clear rightmost 2 bits, then set to 01)	
 
 		} else {
-			tmp B = (tmpB & 0xFC) | 0x02;	//sets tmp to bbbbbb10
+			tmpB = (tmpB & 0xFC) | 0x02;	//sets tmp to bbbbbb10
 							//clears rightmost 2 bits, then set to 10
 		}
 		// 3 write output
-		PORTB = tmpB
+		PORTB = tmpB;
 	}
 	return 0;
 }			//
