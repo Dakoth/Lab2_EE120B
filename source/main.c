@@ -24,7 +24,6 @@ int main(void) {
 	//unsigned char tmpC = 0x00; // Temporary variable to hold the value of C
 	unsigned char tmpA = 0x00; // Temporary variable to hold the value of A
 
-	//unsigned char i;
 	unsigned char cntAvail = 0x00;	//Count of number of FREE spaces in binary 
 	
 	while(1) {
@@ -32,7 +31,7 @@ int main(void) {
 		tmpA = PINA;
 		
 		//counts number of free spaces in A 
-		cntAvail = ((tmpA & 0x08) >> 3) + ((tmpA & 0x04) >> 2) + ((tmpA & 0x02) >> 2) +	((tmpA & 0x01)); //3, 2, 1, 0
+		cntAvail = ((tmpA & 0x08) >> 3) + ((tmpA & 0x04) >> 2) + ((tmpA & 0x02) >> 1) +	((tmpA & 0x01)); //3, 2, 1, 0
 		
 		PORTC = cntAvail;		
 	}
