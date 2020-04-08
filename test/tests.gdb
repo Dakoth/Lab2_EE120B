@@ -41,22 +41,22 @@ echo Running all tests..."\n\n
 # Add tests below
 # Exercise 1
 
-test "PINA: 0x00 => PORTB: 0x00" #no '1'
+test "PINA: 0x00 => PORTB: 0x04" #no '1'
 setPINA 0x00
 continue 5
-expectPORTC 0x00
+expectPORTC 0x04
 checkResult
 
-test "PINA: 0x01 => PORTB: 0x01" #one 1
+test "PINA: 0x01 => PORTB: 0x03" #one 1
 setPINA 0x01
 continue 5
-expectPORTC 0x01
+expectPORTC 0x03
 checkResult
 
-test "PINA: 0x02 => PORTB: 0x01" #1 zero 
+test "PINA: 0x02 => PORTB: 0x03" #1 zero 
 setPINA 0x02
 continue 5
-expectPORTC 0x01
+expectPORTC 0x03
 checkResult
 
 test "PINA: 0x03 => PORTB: 0x02"
@@ -65,10 +65,10 @@ continue 5
 expectPORTC 0x02
 checkResult
 
-test "PINA: 0x04 => PORTB: 0x01"
+test "PINA: 0x04 => PORTB: 0x03"
 setPINA 0x04
 continue 5
-expectPORTC 0x01
+expectPORTC 0x03
 checkResult
 
 test "PINA: 0x05 => PORTB: 0x02"
@@ -83,16 +83,16 @@ continue 5
 expectPORTC 0x02
 checkResult
 
-test "PINA: 0x07 => PORTB: 0x03"
+test "PINA: 0x07 => PORTB: 0x01"
 setPINA 0x07
 continue 5
-expectPORTC 0x03
+expectPORTC 0x01
 checkResult
 
-test "PINA: 0x08 => PORTB: 0x01"
+test "PINA: 0x08 => PORTB: 0x03"
 setPINA 0x08
 continue 5
-expectPORTC 0x01
+expectPORTC 0x03
 checkResult
 
 test "PINA: 0x09 => PORTB: 0x02"
@@ -107,10 +107,10 @@ continue 5
 expectPORTC 0x02
 checkResult
 
-test "PINA: 0x0B => PORTB: 0x03"
+test "PINA: 0x0B => PORTB: 0x01"
 setPINA 0x0B
 continue 5
-expectPORTB 0x03
+expectPORTB 0x01
 checkResult
 
 test "PINA: 0x0C => PORTB: 0x02"
@@ -119,22 +119,22 @@ continue 5
 expectPORTC 0x02
 checkResult
 
-test "PINA: 0x0D => PORTB: 0x03"
+test "PINA: 0x0D => PORTB: 0x01"
 setPINA 0x0D
 continue 5
-expectPORTC 0x03
+expectPORTC 0x01
 checkResult
 
-test "PINA: 0x0E => PORTB: 0x03"
+test "PINA: 0x0E => PORTB: 0x01"
 setPINA 0x0E
 continue 5
-expectPORTC 0x03
+expectPORTC 0x01
 checkResult
 
-test "PINA: 0x0F => PORTB: 0x04"
+test "PINA: 0x0F => PORTB: 0x00"
 setPINA 0x0F
 continue 5
-expectPORTB 0x04
+expectPORTB 0x00
 checkResult
 
 #####################################################
