@@ -1,7 +1,7 @@
 /*	Author: agonz250
  *  Partner(s) Name: 
  *	Lab Section: 028 
- *	Assignment: Lab #2  Exercise # 2
+ *	Assignment: Lab #2  Exercise # 3
  *	Exercise Description: [optional - include for your own benefit]
  *
  *	I acknowledge all content contained herein, excluding template or example
@@ -19,17 +19,23 @@ int main(void) {
 
 	unsigned char tmpA = 0x00; // Temporary variable to hold the value of A 
 	unsigned char cntAvail;	//Count of number of FREE spaces in binary 
-	
+	unsigned char full = 0x00;	
+
 	while(1) {
 		//read input
 		tmpA = PINA;
 
-		tmpA = ~tmpA; 	//invert the bits to show the correct values when added 	
+
+		//If the lot is full //PART 3
+		//if (A3 & ... & A0 = 1), then full should be make b7 = 1 
+		full = ((tmpA & 0x08) << 4) & ((tmpA & 0x04) << 5) & ((tmpA & 0x02) << 6) & ((tmpA & 0x01) << 7); //	 
 	
+		tmpA = ~tmpA; 	//invert the bits to show the correct values when added 	
 		//counts number of free spaces in A 
 		cntAvail = ((tmpA & 0x08) >> 3) + ((tmpA & 0x04) >> 2) + ((tmpA & 0x02) >> 1) +	((tmpA & 0x01)); //3, 2, 1, 0
-	
-		PORTC = cntAvail;		
+
+		
+		PORTC = cntAvail | full;		
 	}	
 	return 0;
 }
