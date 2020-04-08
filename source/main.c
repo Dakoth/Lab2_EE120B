@@ -14,9 +14,9 @@
 #endif	
 
 //Used to get value at specified bit value 
-unsigned char GetBit(unsigned char x, unsigned char k) {
-	return ((x & (0x01 << k)) != 0);
-}
+//unsigned char GetBit(unsigned char x, unsigned char k) {
+//	return ((x & (0x01 << k)) != 0);
+//}
 
 int main(void) {
 	DDRA = 0x00; PORTA = 0xFF; // Configure port A's 8 pins as inputs
@@ -25,9 +25,21 @@ int main(void) {
 	unsigned char tmpA = 0x00; // Temporary variable to hold the value of A
 
 	unsigned char i;
-	unsigned char cntavail = 0x00;	//Count of number of spaces in binary 
-	//tmpA = PINA & 0x0F;
+	unsigned char cntAvail = 0x00;	//Count of number of FREE spaces in binary 
+	
+	while(1) {
+		//read input
+		tmpA = PINA;
+		
+		//counts number of free spaces in A 
+		cntAvail = ((A & 0x08) >> 3) + ((A & 0x04) >> 2) + ((A & 0x02) >> 2) +	((A & 0x01)); //3, 2, 1, 0
+		
+		
 
+
+	}
+	//tmpA = PINA & 0x0F;
+	/*
 	while(1) {
 		// 1) Read input
 		//tmpA = PINA & 0x0F; 	//Selects PA3 - PA0
@@ -45,6 +57,6 @@ int main(void) {
 		//tmpC = cntavail; //added
 		//PORTC = tmpC; //added 
 		PORTC = cntavail;
-	}
+	} */	
 	return 0;
 }
