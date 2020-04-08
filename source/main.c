@@ -21,17 +21,18 @@ unsigned char GetBit(unsigned char x, unsigned char k) {
 int main(void) {
 	DDRA = 0x00; PORTA = 0xFF; // Configure port A's 8 pins as inputs
 	DDRC = 0xFF; PORTC = 0x00; // Configure port C's 8 pins as outputs, initialize to 0s
-	unsigned char tmpC = 0x00; // Temporary variable to hold the value of C
+	//unsigned char tmpC = 0x00; // Temporary variable to hold the value of C
 	unsigned char tmpA = 0x00; // Temporary variable to hold the value of A
 
+	unsigned char i;
 	unsigned char cntavail = 0;	//Count of number of spaces in binary 
 	//tmpA = PINA & 0x0F;
 
 	while(1) {
 		// 1) Read input
 		//tmpA = PINA & 0x0F; 	//Selects PA3 - PA0
-		for (int i = 0; i < 4; i++) { //if 1, increase count, does it 4 times
-			if(GetBit(A, i)) {
+		for (i = 0; i < 4; i++) { //if 1, increase count, does it 4 times
+			if(GetBit(tmpA, i)) {
 				cntavail++;	
 			}
 		}
