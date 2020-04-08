@@ -25,22 +25,25 @@ int main(void) {
 	unsigned char tmpA = 0x00; // Temporary variable to hold the value of A
 
 	unsigned char i;
-	unsigned char cntavail = 0;	//Count of number of spaces in binary 
+	unsigned char cntavail = 0x00;	//Count of number of spaces in binary 
 	//tmpA = PINA & 0x0F;
 
 	while(1) {
 		// 1) Read input
 		//tmpA = PINA & 0x0F; 	//Selects PA3 - PA0
-		for (i = 0; i < 4; i++) { //if 1, increase count, does it 4 times
-			if(GetBit(tmpA, i)) {
+		for (i = 0; i < 8; i++) { //if 1, increase count, does it 4 times
+			if( GetBit(tmpA, i) ) {
 				cntavail++;	
 			}
 		}
+		printf("%d\n", cntavail); 	//TEST
 		// 2) Perform computation 
 
 		//tmpA = (tmpA & 0xF0); //clears 
 		
 		// 3 write output
+		//tmpC = cntavail; //added
+		//PORTC = tmpC; //added 
 		PORTC = cntavail;
 	}
 	return 0;
