@@ -65,6 +65,18 @@ continue 5
 expectPORTB 0x00
 checkResult
 
+test "PINA: 0xF0 => PORTB: 0x00"
+setPINA 0xF0
+continue 5
+expectPORTB 0x00
+checkResult
+
+test "PINA: 0xF1 => PORTB: 0x01"
+setPINA 0xF1
+continue 5
+expectPORTB 0x01
+checkResult
+
 #####################################################
 
 

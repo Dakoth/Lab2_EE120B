@@ -22,8 +22,7 @@ int main(void) {
 	while(1) {
 		// 1) Read input
 		tmpA = PINA & 0x03; 	//Selects PA1 and PA0				
-		// 2) Perform computation
-		// if 
+		// 2) Perform computation 
 		
 		if (tmpA == 0x01) { //If PA1 = 0, and PA0 = 1, (ONLY CASE WHERE PB0 = 1)
 			tmpB = (tmpB & 0xFE) | 0x01;	//sets tmp to bbbbbbb0
@@ -40,4 +39,4 @@ int main(void) {
 		PORTB = tmpB;
 	}
 	return 0;
-}			
+}		//test	
