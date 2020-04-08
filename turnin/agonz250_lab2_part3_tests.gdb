@@ -41,7 +41,7 @@ echo Running all tests..."\n\n
 # Add tests below
 # Exercise 1
 
-test "PINA: 0x00 => PORTc: 0x04" #no '0'
+test "PINA: 0x00 => PORTC: 0x04" #no '0'
 setPINA 0x00
 continue 2
 expectPORTC 0x04 	#
@@ -131,10 +131,10 @@ continue 5
 expectPORTC 0x01
 checkResult
 
-test "PINA: 0x0F => PORTC: 0x00"
+test "PINA: 0x0F => PORTC: 0x80"
 setPINA 0x0F
 continue 5
-expectPORTC 0x00
+expectPORTC 0x80
 checkResult
 
 #####################################################
