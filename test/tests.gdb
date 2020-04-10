@@ -43,19 +43,6 @@ echo Running all tests..."\n\n
 #
 # ##################################
 
-test "PINA: 90, PINB: 90, PINC: 50  => PORTD: 0x01" 
-#Set inputs
-setPINA 90
-setPINB 90
-setPINC 50
-# Continue for several ticks 		
-continue 2
-# Set expect values 
-expectPORTD 0x01 
-# check pass/fail	
-checkResult
-
-
 test "PINA: 0, PINB: 0, PINC: 0  => PORTD: 0x00" 
 #Set inputs
 setPINA 0
@@ -65,6 +52,45 @@ setPINC 0
 continue 2
 # Set expect values 
 expectPORTD 0x00 
+# check pass/fail	
+checkResult
+
+
+test "PINA: 90, PINB: 90, PINC: 50  => PORTD: 0xE5" 
+#Set inputs
+setPINA 90
+setPINB 90
+setPINC 50
+# Continue for several ticks 		
+continue 2
+# Set expect values 
+expectPORTD 0xE5		# 1110 01 01	 
+# check pass/fail	
+checkResult
+
+
+test "PINA: 30, PINB: 90, PINC: 120  => PORTD: 0xF3" 
+#Set inputs
+setPINA 30
+setPINB 90
+setPINC 120
+# Continue for several ticks 		
+continue 2
+# Set expect values 
+expectPORTD 0xF3		# 1111 00 11	 
+# check pass/fail	
+checkResult
+
+
+test "PINA: 0, PINB: 60, PINC: 0  => PORTD: 0x3C" 
+#Set inputs
+setPINA 0
+setPINB 60
+setPINC 0
+# Continue for several ticks 		
+continue 2
+# Set expect values 
+expectPORTD 0x3C		#0011 11 00	 
 # check pass/fail	
 checkResult
 
