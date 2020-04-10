@@ -20,26 +20,28 @@ int main(void) {
 
 	DDRD = 0xFF; PORTD = 0x00; // Configure port D's 8 pins as outputs, initialize to 0s
 
-	unsigned char tmpA = 0x00; // Temporary variable to hold the value of A
-	unsigned char tmpB = 0x00;
-	unsigned char tmpC = 0x00; 
+	unsigned char tmpA = 0; // Temporary variable to hold the value of A
+	unsigned char tmpB = 0;
+	unsigned char tmpC = 0;
+	unsigned char tmpD = 0;
+
+	unsigned short sumABC = 0; //Used to get the sum of a b and c  
 
 	//unsigned char cntAvail;	//Count of number of FREE spaces in binary 	
 
 	while(1) {
-		//read input
 		tmpA = PINA;
+		tmpB = PINB;
+		tmpC = PINC;
 
-		tmpA = ~tmpA; 	//invert the bits to show the correct values when added 	
+		sumABC = tmpA + tmpB + tmpC; 
 
-		//counts number of free spaces in A 
-		cntAvail = ((tmpA & 0x08) >> 3) + ((tmpA & 0x04) >> 2) + ((tmpA & 0x02) >> 1) +	((tmpA & 0x01)); //3, 2, 1, 0	
-		PORTC = cntAvail;		
-		
-		//If the lot is full, then set C7 = 1
-		if (cntAvail == 0x00) {
-			PORTC = cntAvail | 0x80;
+		//If the cart's total weight exceeds 140 lbs, PD0 = 1;
+		if (sumABC > 140) {
+			tmpD = tmpD | 0x01;	
 		}
+
+		PORTD = tmpD;
 	}	
 	return 0;
 }
