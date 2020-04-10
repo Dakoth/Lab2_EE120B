@@ -1,7 +1,7 @@
 /*	Author: agonz250
  *  Partner(s) Name: 
  *	Lab Section: 028 
- *	Assignment: Lab #2  Exercise # 3
+ *	Assignment: Lab #2  Exercise # 4
  *	Exercise Description: [optional - include for your own benefit]
  *
  *	I acknowledge all content contained herein, excluding template or example
@@ -15,10 +15,16 @@
 
 int main(void) {
 	DDRA = 0x00; PORTA = 0xFF; // Configure port A's 8 pins as inputs
-	DDRC = 0xFF; PORTC = 0x00; // Configure port C's 8 pins as outputs, initialize to 0s
+	DDRB = 0x00; PORTB = 0XFF; //Sets port B to input 
+	DDRC = 0x00; PORTC = 0xFF; //Set's Port C t0 input 
 
-	unsigned char tmpA = 0x00; // Temporary variable to hold the value of A 
-	unsigned char cntAvail;	//Count of number of FREE spaces in binary 	
+	DDRD = 0xFF; PORTD = 0x00; // Configure port D's 8 pins as outputs, initialize to 0s
+
+	unsigned char tmpA = 0x00; // Temporary variable to hold the value of A
+	unsigned char tmpB = 0x00;
+	unsigned char tmpC = 0x00; 
+
+	//unsigned char cntAvail;	//Count of number of FREE spaces in binary 	
 
 	while(1) {
 		//read input
