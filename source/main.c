@@ -66,8 +66,11 @@ int main(void) {
 			tmpD = tmpD & 0xFD; //1111 1101 	
 		}
 		
-		
-		tmpD = 		 ((
+
+		//Since we only need the weight to be within 3kg, right shift by 2 and then 
+		//left shift by 2 in order to get rid of leftmost least sig bits
+		//afterwards, OR it with the value of tmpD, keeping in it's current values 
+		tmpD = (tmpD & 0x03) | ( (sumWeight >> 2) << 2);
 		
 		//put tmp into D 
 		PORTD = tmpD;
