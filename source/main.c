@@ -23,7 +23,7 @@ int main(void) {
 	unsigned char tmpA = 0; // Temporary variable to hold the value of A
 	unsigned char tmpB = 0;
 	unsigned char tmpC = 0;
-	unsigned char tmpD = 0;
+	unsigned char tmpD = 0x00;
 
 	unsigned short sumABC = 0; //Used to get the sum of a b and c  
 
@@ -36,7 +36,7 @@ int main(void) {
 
 		sumABC = tmpA + tmpB + tmpC; 
 
-		//If the cart's total weight exceeds 140 lbs, PD0 = 1;
+		//If the cart's total weight exceeds 140 kg, PD0 = 1;
 		if (sumABC > 140) {
 			tmpD = tmpD | 0x01;	
 		}
