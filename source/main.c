@@ -27,7 +27,7 @@ int main(void) {
 
 	unsigned char largerVal, smallerVal; //Used for the step when subtracting A and C
 
-	unsigned short sumABC; //Used to get the sum of a b and c  
+	unsigned short sumWeight; //Used to get the sum of a b and c  
 
 	//unsigned char cntAvail;	//Count of number of FREE spaces in binary 	
 
@@ -36,11 +36,11 @@ int main(void) {
 		tmpB = PINB;
 		tmpC = PINC;
 
-		sumABC = tmpA + tmpB + tmpC; 
+		sumWeight = tmpA + tmpB + tmpC; 
 
 		//printf("%d \n", sumABC); //test print
 		//If the cart's total weight exceeds 140 kg, PD0 = 1;
-		if ( sumABC > 140) {
+		if ( sumWeight > 140) {
 			tmpD = tmpD | 0x01;	
 		}
 		else { 
@@ -67,7 +67,7 @@ int main(void) {
 		}
 		
 		
-		PORTD = 
+		tmpD = 		 ((
 		
 		//put tmp into D 
 		PORTD = tmpD;
