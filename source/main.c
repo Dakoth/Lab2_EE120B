@@ -25,7 +25,7 @@ int main(void) {
 	unsigned char tmpC = 0;
 	unsigned char tmpD = 0x00;
 
-	unsigned short sumABC = 0; //Used to get the sum of a b and c  
+	unsigned short sumABC; //Used to get the sum of a b and c  
 
 	//unsigned char cntAvail;	//Count of number of FREE spaces in binary 	
 
@@ -36,12 +36,16 @@ int main(void) {
 
 		sumABC = tmpA + tmpB + tmpC; 
 
+		//printf("%d \n", sumABC); //test print
 		//If the cart's total weight exceeds 140 kg, PD0 = 1;
-		if (sumABC > 140) {
-			tmpD = tmpD | 0x01;	
+		if ( sumABC > 140) {
+			PORTD = tmpD | 0x01;	
+		}
+		else { 
+			PORTD = tmpD & 0xFE;
 		}
 
-		PORTD = tmpD;
+		//PORTD = tmpD;
 	}	
 	return 0;
 }

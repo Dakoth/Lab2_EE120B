@@ -56,11 +56,11 @@ expectPORTD 0x01
 checkResult
 
 
-test "PINA: 30, PINB: 30, PINC: 30  => PORTD: 0x00" 
+test "PINA: 0, PINB: 0, PINC: 0  => PORTD: 0x00" 
 #Set inputs
-setPINA 30
-setPINB 30
-setPINC 30
+setPINA 0
+setPINB 0
+setPINC 0
 # Continue for several ticks 		
 continue 2
 # Set expect values 
